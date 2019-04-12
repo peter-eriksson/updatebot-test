@@ -1,0 +1,22 @@
+#!groovy
+pipeline {
+	agent none
+	stages {
+		stage('Build') {
+			steps {
+				sh 'mvn clean package'
+			}
+		}
+		stage('Deploy') {
+			when {
+				branch 'master'
+			}
+			steps {
+				script {
+					currentBuild.displayName = "${REVISION}"
+				}
+				sh 'mvn deploy scm:tag -Drevision=${REVISION}'
+			}
+		}
+	}
+}
