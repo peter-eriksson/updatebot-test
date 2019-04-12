@@ -1,6 +1,12 @@
 #!groovy
 pipeline {
-	agent none
+	agent {
+		label 'master'
+	}
+	tools {
+		maven 'maven3'
+		jdk 'java8'
+	}
 	stages {
 		stage('Build') {
 			steps {
