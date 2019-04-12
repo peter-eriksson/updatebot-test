@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>se.test</groupId>
+	<artifactId>project1</artifactId>
+	<version>1.0</version>
+
+
+	<distributionManagement>
+		<repository>
+			<id>nexus.internal</id>
+			<uniqueVersion>false</uniqueVersion>
+			<name>Inhouse Repository</name>
+			<url>http://tcknexus.ticket.se/repository/releases/</url>
+		</repository>
+
+		<snapshotRepository>
+			<id>nexus.snapshots</id>
+			<uniqueVersion>true</uniqueVersion>
+			<name>Inhouse Snapshot Repository</name>
+			<url>http://tcknexus.ticket.se/repository/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Local Nexus</name>
+			<url>http://tcknexus.ticket.se/repository/public/</url>
+		</repository>
+		<repository>
+			<id>snapshots</id>
+			<name>Local Nexus</name>
+			<url>http://tcknexus.ticket.se/repository/snapshot-group/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<scm>
+		<connection>scm:git:git@github.com:peter-eriksson/updatebot-test.git</connection>
+		<url>scm:git:git@github.com:peter-eriksson/updatebot-test.git</url>
+		<developerConnection>scm:git:git@github.com:peter-eriksson/updatebot-test.git</developerConnection>
+	</scm>
+
+</project>
